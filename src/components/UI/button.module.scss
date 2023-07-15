@@ -1,0 +1,41 @@
+@use "../../scss/components/variables" as *;
+
+.button {
+  background-color: $clr-neutral-900;
+  border: none;
+  color: $clr-neutral-200;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  font-weight: $fw-bold;
+  padding: 0.75rem 1.4rem;
+  border-radius: 0.85rem;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 40em) {
+  .button {
+    position: relative;
+    font-size: $fs-primary;
+    padding: 0.85rem 1.75rem;
+    transition: color 250ms ease, background-color 250ms ease;
+
+    &:hover,
+    &:focus-visible {
+      background-color: transparent;
+      color: $clr-neutral-900;
+
+      &::before {
+        content: "";
+        position: absolute;
+        outline: 1.75px solid black;
+        outline-offset: -1.75px;
+        border-radius: inherit;
+        inset: 0;
+      }
+    }
+    &:focus-visible {
+      outline: 3px dashed $clr-neutral-900;
+      outline-offset: 2px;
+    }
+  }
+}
